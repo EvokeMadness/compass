@@ -178,11 +178,13 @@ a {
   @include medium {
     padding: 2rem 4rem;
     font-size: 1.1rem;
+    background: #303030;
   }
 
   @include small {
     padding: 2rem 1rem;
     font-size: 1rem;
+    background: #303030;
   }
   
   kbd {
@@ -200,7 +202,9 @@ a {
   }
 
   img {
-    max-width: 100%;
+    max-width: 40%;
+    max-height: 720px;
+    // float: right;
   }
 
   h1,
