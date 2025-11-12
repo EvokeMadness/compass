@@ -14,25 +14,22 @@ layout: default
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {% endif %}</p>
   </header>
-
-  {% if page.images %}
-    <div style="display: flex;">
-      <div style="flex: 1;">
   <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-      </div>
-      <div style="flex: 1;">
-        {% for img in page.images %}
-          <img src="{{ img | relative_url }}">
-        {% endfor %}
-      </div>
-    </div>
-  {% else %}
-    <div class="post-content e-content" itemprop="articleBody">
+    {% if page.images %}
+      <div style="display: flex;">
+        <div style="flex: 1;">
       {{ content }}
-    </div>
-  {% endif %}
+        </div>
+        <div style="flex: 1;">
+          {% for img in page.images %}
+            <img src="{{ img | relative_url }}">
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </div>
 
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}

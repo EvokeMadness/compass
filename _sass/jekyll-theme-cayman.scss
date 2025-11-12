@@ -34,19 +34,19 @@ body {
   color: $body-text-color;
   background:
   url('../noise.svg'),
-    linear-gradient(
-      to right,
-      $background-color-secondary 0% 8%,
-      $background-color-secondary-accent 9% 9%,
-      transparent 10%
-    ),
-    linear-gradient(
-      to left,
-      $background-color-secondary 0% 8%,
-      $background-color-secondary-accent 9% 9%,
-      transparent 10%
-    ),
-    $background-color;
+  linear-gradient(
+    to right,
+    map-get($background-color-secondary, color) map-get($background-color-secondary, stop),
+    map-get($background-color-secondary-accent, color) map-get($background-color-secondary-accent, stop),
+    map-get($background-color-transparent, color) map-get($background-color-transparent, stop)
+  ),
+  linear-gradient(
+    to left,
+    map-get($background-color-secondary, color) map-get($background-color-secondary, stop),
+    map-get($background-color-secondary-accent, color) map-get($background-color-secondary-accent, stop),
+    map-get($background-color-transparent, color) map-get($background-color-transparent, stop)
+  ),
+  $background-color;
 }
 
 #skip-to-content {
@@ -78,7 +78,7 @@ a {
 
 .btn {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin: 1rem;
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
@@ -121,21 +121,23 @@ a {
 }
 
 .page-header {
+  display: flex;
+  justify-content: space-between;
   color: $header-heading-color;
-  text-align: center;
+  text-align: left;
   background-color: $header-bg-color;
   // background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
 
   @include large {
-    padding: 5rem 6rem;
+    padding: 1rem 6rem;
   }
 
   @include medium {
-    padding: 3rem 4rem;
+    padding: 1rem 4rem;
   }
 
   @include small {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
   }
 }
 
@@ -213,7 +215,7 @@ a {
   }
 
   img {
-    max-width: 50%;
+    max-width: 100%;
   }
 
   h1,
